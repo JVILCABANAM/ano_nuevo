@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Año Nuevo 2026 ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@200;300;400;600;700;800&family=Great+Vibes&display=swap');
+
+        :root {
+            --gold: #FFD700;
+            --rose-gold: #E8B4B8;
+            --purple: #9D4EDD;
+            --cyan: #06FFA5;
+            --pink: #FF006E;
+            --dark: #0D1B2A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: var(--dark);
+            color: #fff;
+            position: relative;
+        }
+
+        /* Advanced Background */
+        .bg-animated {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 110, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(6, 255, 165, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #0D1B2A 100%);
+            animation: bgShift 20s ease infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        #particles-js, #fireworks-canvas {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        #particles-js { z-index: 1; }
+        #fireworks-canvas { z-index: 3; }
+
+        .content { position: relative; z-index: 10; }
+
+        /* Hero Ultra Premium */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.3), transparent);
+            filter: blur(100px);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .year-mega {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(100px, 25vw, 350px);
+            font-weight: 700;
+            position: relative;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .year-mega span {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF69B4 50%, #9D4EDD 75%, #06FFA5 100%);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 8s ease infinite, float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6)) 
+                    drop-shadow(0 0 80px rgba(157, 78, 221, 0.4));
+        }
+
+        .year-mega span:nth-child(1) { animation-delay: 0s; }
+        .year-mega span:nth-child(2) { animation-delay: 0.1s; }
+        .year-mega span:nth-child(3) { animation-delay: 0.2s; }
+        .year-mega span:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(50px, 10vw, 110px);
+            background: linear-gradient(45deg, var(--gold), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 10px 30px rgba(255, 215, 0, 0.4));
+            margin: 2rem 0;
+        }
+
+        .hero-desc {
+            font-size: clamp(16px, 2.5vw, 24px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 40px;
+            color: var(--cyan);
+            filter: drop-shadow(0 0 20px var(--cyan));
+        }
+
+        /* Cards Premium con 3D */
+        .cards-section {
+            padding: 120px 2rem;
+            perspective: 1000px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(40px, 7vw, 85px);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--purple), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: clamp(16px, 2vw, 22px);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .premium-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(157, 78, 221, 0.1) 0%, 
+                rgba(6, 255, 165, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+
+        .premium-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s, transform 0.6s;
+            pointer-events: none;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-25px) rotateX(5deg);
+            box-shadow: 
+                0 40px 100px rgba(157, 78, 221, 0.4),
+                0 0 100px rgba(6, 255, 165, 0.3),
+                inset 0 0 60px rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 255, 165, 0.5);
+        }
+
+        .premium-card:hover::before {
+            opacity: 1;
+        }
+
+        .premium-card:hover::after {
+            opacity: 1;
+            transform: translate(30%, 30%);
+        }
+
+        .card-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(6, 255, 165, 0.2));
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s;
+        }
+
+        .premium-card:hover .card-icon-wrapper {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.6);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.5));
+        }
+
+        .card-content h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .card-content p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+
+        /* Message Ultra Luxury */
+        .message-section {
+            padding: 150px 2rem;
+            background: 
+                linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(255, 0, 110, 0.1)),
+                radial-gradient(circle at 50% 50%, rgba(6, 255, 165, 0.05), transparent);
+        }
+
+        .message-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border-radius: 50px;
+            padding: 100px 80px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 50px 150px rgba(0, 0, 0, 0.5),
+                inset 0 0 100px rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-content p {
+            font-size: clamp(18px, 2.5vw, 28px);
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .message-content strong {
+            background: linear-gradient(45deg, var(--gold), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .message-divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            margin: 40px auto;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px var(--cyan); }
+            50% { box-shadow: 0 0 40px var(--cyan); }
+        }
+
+        /* Final Epic */
+        .final-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-section::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);
+            filter: blur(120px);
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        .final-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(40px, 8vw, 100px);
+            font-weight: 700;
+            background: linear-gradient(45deg, #FFD700, #FF69B4, #9D4EDD, #06FFA5);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 5s ease infinite;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 10px 40px rgba(255, 215, 0, 0.4));
+        }
+
+        .final-emojis {
+            font-size: clamp(60px, 12vw, 140px);
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-emojis span {
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(255, 215, 0, 0.5));
+        }
+
+        .final-emojis span:nth-child(1) { animation-delay: 0s; }
+        .final-emojis span:nth-child(2) { animation-delay: 0.2s; }
+        .final-emojis span:nth-child(3) { animation-delay: 0.4s; }
+        .final-emojis span:nth-child(4) { animation-delay: 0.6s; }
+        .final-emojis span:nth-child(5) { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 1rem;
+            }
+
+            .premium-card {
+                padding: 40px 30px;
+            }
+
+            .message-box {
+                padding: 60px 40px;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animated"></div>
+    <div id="particles-js"></div>
+    <canvas id="fireworks-canvas"></canvas>
+
+    <div class="content">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="year-mega animate__animated animate__zoomIn">
+                <span>2</span><span>0</span><span>2</span><span>6</span>
+            </div>
+            <h1 class="hero-title animate__animated animate__fadeIn animate__delay-1s">
+                Feliz Año Nuevo
+            </h1>
+            <p class="hero-desc animate__animated animate__fadeIn animate__delay-2s">
+                Un nuevo capítulo lleno de posibilidades extraordinarias comienza hoy
+            </p>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Cards -->
+        <section class="cards-section">
+            <div class="section-header reveal">
+                <h2 class="section-title">Deseos Especiales Para Ti</h2>
+                <p class="section-subtitle">Que este año esté lleno de momentos inolvidables</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">🚀</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Conquista Tus Metas</h3>
+                        <p>Que este año sea el impulso definitivo para alcanzar tus sueños más ambiciosos. Atrévete a ir más allá y trabaja con pasión por lo que deseas lograr.</p>
+                    </div>
+                </div>
+
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">💎</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Momentos Preciosos</h3>
+                        <p>Cada instante es único e irrepetible. Aprecia las pequeñas cosas, celebra tus victorias y crea recuerdos que brillen eternamente en tu corazón.</p>
+                    </div>
+                </div>
+
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">🌟</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Brilla Con Autenticidad</h3>
+                        <p>Tu esencia única es tu mayor fortaleza. Sé fiel a ti mismo, brilla con luz propia y deja que el mundo vea la magia extraordinaria que llevas dentro.</p>
+                    </div>
+                </div>
+
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">🎯</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Enfoque y Determinación</h3>
+                        <p>Define tus objetivos con claridad cristalina y avanza hacia ellos con determinación inquebrantable. Cada paso te acerca a tu mejor versión.</p>
+                    </div>
+                </div>
+
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">❤️</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Salud y Felicidad</h3>
+                        <p>Que la salud, el amor verdadero y la felicidad plena te acompañen siempre. Rodéate de quienes suman valor a tu vida y cultiva relaciones genuinas.</p>
+                    </div>
+                </div>
+
+                <div class="premium-card reveal">
+                    <div class="card-icon-wrapper">
+                        <span class="card-icon">🎊</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Celebra Cada Victoria</h3>
+                        <p>Honra cada logro, aprende de cada experiencia y agradece por cada nuevo día. La vida es una hermosa colección de momentos especiales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message -->
+        <section class="message-section">
+            <div class="message-box reveal">
+                <div class="message-content">
+                    <p>
+                        Espero que este <strong>2026</strong> sea un año absolutamente extraordinario para ti. 
+                        Que puedas materializar todos esos sueños que guardas en tu corazón y que vivas 
+                        experiencias memorables junto a las personas que más amas.
+                    </p>
+                    <div class="message-divider"></div>
+                    <p>
+                        Que encuentres <strong>alegría</strong> en los detalles cotidianos, 
+                        <strong>fortaleza</strong> en los momentos desafiantes y 
+                        <strong>gratitud infinita</strong> por todo lo maravilloso que llegue a tu vida.
+                    </p>
+                    <div class="message-divider"></div>
+                    <p>
+                        Te deseo un año repleto de <strong>salud vibrante</strong>, <strong>prosperidad abundante</strong> 
+                        y <strong>momentos mágicos</strong> que atesorarás por siempre. 
+                        Que cada amanecer sea una nueva oportunidad para ser feliz y crecer.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final -->
+        <section class="final-section">
+            <h2 class="final-title reveal">
+                ¡Que Tengas Un<br>Año Espectacular!
+            </h2>
+            <div class="final-emojis reveal">
+                <span>🎊</span>
+                <span>✨</span>
+                <span>🎉</span>
+                <span>💫</span>
+                <span>🌟</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Premium
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 150, density: { enable: true, value_area: 800 } },
+                color: { value: ['#FFD700', '#9D4EDD', '#06FFA5', '#FF69B4'] },
+                shape: { 
+                    type: ['circle', 'triangle'],
+                    stroke: { width: 0 }
+                },
+                opacity: { 
+                    value: 0.5, 
+                    random: true,
+                    anim: { enable: true, speed: 1, opacity_min: 0.1 }
+                },
+                size: { 
+                    value: 4, 
+                    random: true,
+                    anim: { enable: true, speed: 2, size_min: 0.5 }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.15,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' }
+                },
+                modes: {
+                    grab: { distance: 200, line_linked: { opacity: 0.5 } },
+                    push: { particles_nb: 4 }
+                }
+            }
+        });
+
+        // Enhanced Fireworks
+        const canvas = document.getElementById('fireworks-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.velocity = {
+                    x: (Math.random() - 0.5) * 8,
+                    y: (Math.random() - 0.5) * 8
+                };
+                this.alpha = 1;
+                this.decay = Math.random() * 0.015 + 0.015;
+                this.size = Math.random() * 3 + 2;
+            }
+
+            update() {
+                this.velocity.y += 0.15;
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const particles = [];
+        const colors = ['#FFD700', '#9D4EDD', '#06FFA5', '#FF69B4', '#FFA500'];
+
+        function createFirework() {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height * 0.6;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle(x, y, color));
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(13, 27, 42, 0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+                if (particle.alpha <= 0) particles.splice(index, 1);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        setInterval(createFirework, 800);
+        animate();
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // 3D Card Effect
+        document.querySelectorAll('.premium-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `translateY(-25px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
